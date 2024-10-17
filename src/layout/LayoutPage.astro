@@ -1,0 +1,11 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import HeaderHome from "../components/sections/HeaderHome.astro";
+import Header from "../components/sections/Header.astro";
+const { title = "", description = "" } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+    <Header />
+    <slot />
+</BaseLayout>

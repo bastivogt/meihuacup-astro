@@ -11,7 +11,20 @@ const { class: className } = Astro.props;
 
 <nav class={`Navbar px-5 ${className}`}>
     <div class="flex justify-between items-center">
-        <div class="right basis-24 py-5 px-2"></div>
+        <div class="right basis-32 py-5 px-2">
+            <div class="">
+                <a
+                    class="block mx-auto transition all ease-linear duration-200 scale-100 hover:scale-90"
+                    href="/"
+                >
+                    <img
+                        class="block"
+                        src="/images/logo-meihuacup.svg"
+                        alt="Logo Meihuacup"
+                    />
+                </a>
+            </div>
+        </div>
         <div class="flex justify-center center basis-auto py-5">
             <div>
                 <NavigationMain class="hidden lg:block" />

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layout/BaseLayout.astro";
+import LayoutPage from "../../layout/LayoutPage.astro";
 import Heading from "../../components/base/Heading.astro";
 import { getCollection } from "astro:content";
 
@@ -8,7 +9,7 @@ const news = await getCollection("news").then((res) =>
 );
 ---
 
-<BaseLayout title="News" description="News">
+<LayoutPage title="News" description="News">
     <Heading tag="h1">News</Heading>
     <ul>
         {
@@ -21,4 +22,4 @@ const news = await getCollection("news").then((res) =>
             })
         }
     </ul>
-</BaseLayout>
+</LayoutPage>

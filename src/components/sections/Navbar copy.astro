@@ -10,14 +10,12 @@ const { class: className } = Astro.props;
 ---
 
 <nav class={`Navbar px-5 ${className}`}>
-    <div class="flex justify-between items-center">
-        <div class="right basis-24 py-5 px-2"></div>
-        <div class="flex justify-center center basis-auto py-5">
-            <div>
-                <NavigationMain class="hidden lg:block" />
-            </div>
+    <div class="flex">
+        <div class="left w-full flex justify-center items-center">
+            <NavigationMain class="hidden md:flex" />
         </div>
-        <div class="right basis-24 py-5 flex justify-center">
+
+        <div class="left w-18">
             <div class="text-white">
                 <MobileMenu client:load>
                     <div>

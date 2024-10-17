@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 
 
-export default function MobileMenu({triggerContent,children}) {
+
+
+export default function MobileMenu({children}) {
     const [overlayVisible, setOverlayVisible] = useState(false);
     let overlayRef = useRef(null);
 
@@ -46,13 +48,15 @@ export default function MobileMenu({triggerContent,children}) {
                     <div className="w-full h-full flex justify-center items-center">
                         {children}
                     </div>
-                    <div onClick={triggerHandler} className="absolute text-white top-2 right-2">Close</div>
+                    <div onClick={triggerHandler} className="absolute text-white top-2 right-2 cursor-pointer">
+                        <svg class="transition-all ease-linear duration-200 fill-grey-lighter hover:fill-purple-2" xmlns="http://www.w3.org/2000/svg" height="60px" viewBox="0 -960 960 960" width="60px" fill="#ffffff"><path d="m251.33-204.67-46.66-46.66L433.33-480 204.67-708.67l46.66-46.66L480-526.67l228.67-228.66 46.66 46.66L526.67-480l228.66 228.67-46.66 46.66L480-433.33 251.33-204.67Z"/></svg>
+                    </div>
 
                     
                 </div>
             )}
             <button onClick={triggerHandler}>
-                {triggerContent}
+                <svg class="transition-all ease-linear duration-200 fill-grey-lighter hover:fill-white" xmlns="http://www.w3.org/2000/svg" height="60px" viewBox="0 -960 960 960" width="60px" fill="#ffffff"><path d="M120-240v-66.67h720V-240H120Zm0-206.67v-66.66h720v66.66H120Zm0-206.66V-720h720v66.67H120Z"/></svg>
             </button>  
         </div>
     );
