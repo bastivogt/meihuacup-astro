@@ -19,3 +19,31 @@ const { title = "", description = "" } = Astro.props;
         <slot />
     </body>
 </html>
+
+<style is:global>
+    @keyframes fadeInAnimation {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeOutAnimation {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
+    .fade-in {
+        animation: fadeInAnimation 200ms ease;
+    }
+
+    .fade-out {
+        animation: fadeOutAnimation 200ms ease;
+    }
+</style>
