@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../../layout/BaseLayout.astro";
+import Heading from "../../components/base/Heading.astro";
+import { getCollection } from "astro:content";
+
+const news = await getCollection("news").then((res) =>
+    res.filter((item) => item.data.published)
+);
+---
+
+<BaseLayout title="News" description="News">
+    <Heading tag="h1">News</Heading>
+    <ul>
+        {
+            news.map((item) => {
+                return (
+                    <li>
+                        <a href={`/news/${item.slug}`}>{item.data.title}</a>
+                    </li>
+                );
+            })
+        }
+    </ul>
+</BaseLayout>

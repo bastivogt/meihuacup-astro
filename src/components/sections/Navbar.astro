@@ -1,0 +1,13 @@
+---
+import NavigationMain from "./NavigationMain.astro";
+const { class: className } = Astro.props;
+---
+
+<nav class={`Navbar ${className}`}>
+    <div class="flex">
+        <div class="left w-full flex justify-center">
+            <NavigationMain class="py-4" />
+        </div>
+        <div class="left bg-white w-12"></div>
+    </div>
+</nav>

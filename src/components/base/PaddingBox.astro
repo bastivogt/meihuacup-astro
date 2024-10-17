@@ -1,0 +1,7 @@
+---
+const { class: className } = Astro.props;
+---
+
+<div class={`PaddingBox p-5 ${className}`}>
+    <slot />
+</div>

@@ -1,0 +1,34 @@
+---
+import { NAVIGATION, NAV_MAIN, NAV_META } from "../../_settings";
+import { isActiveLink } from "../../_utils";
+
+const pathname = new URL(Astro.request.url).pathname;
+
+const { class: className } = Astro.props;
+
+const baseClasses =
+    "transition-all ease-linear duration-200 px-2 uppercase text-xl text-grey-lighter hover:text-white";
+const activeState = "";
+const normalState = "";
+
+// transition-all ease-linear duration-200 px-2 uppercase text-xl text-grey-lighter hover:text-white
+---
+
+<div class={`NavigationMain ${className}`}>
+    <ul class="flex">
+        {
+            NAVIGATION.filter((nav) => nav.menu === NAV_MAIN).map((item) => {
+                return (
+                    <li>
+                        <a
+                            class={`transition-all ease-linear duration-200 px-2 uppercase text-xl ${isActiveLink(pathname, item.href) ? "text-white" : "text-grey-lighter"} hover:text-white`}
+                            href={item.href}
+                        >
+                            {item.title}
+                        </a>
+                    </li>
+                );
+            })
+        }
+    </ul>
+</div>

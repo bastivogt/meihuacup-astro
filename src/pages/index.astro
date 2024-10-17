@@ -1,16 +1,100 @@
 ---
-
+import BaseLayout from "../layout/BaseLayout.astro";
+import LayoutHomePage from "../layout/LayoutHomePage.astro";
+import Heading from "../components/base/Heading.astro";
+import Section from "../components/base/Section.astro";
+import SectionInner from "../components/base/SectionInner.astro";
+import P from "../components/base/P.astro";
+import FlexRow from "../components/base/FlexRow.astro";
+import PaddingBox from "../components/base/PaddingBox.astro";
+import SectionGradient from "../components/base/SectionGradient.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<LayoutHomePage title="Home" description="Home">
+    <Section class="bg-blue-200">
+        <SectionInner class="">
+            <Heading tag="h1">Home</Heading>
+            <P>
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                aliquyam erat, sed diam voluptua. At vero eos et accusam et
+                justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+                takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+                dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                sed diam voluptua. At vero eos et accusam et justo duo dolores
+                et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus
+                est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+                consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                invidunt ut labore et dolore magna aliquyam erat, sed diam
+                voluptua. At vero eos et accusam et justo duo dolores et ea
+                rebum. Stet clita kasd gubergren, no sea takimata sanctus est
+                Lorem ipsum dolor sit amet. Duis autem vel eum iriure dolor in
+                hendrerit in vulputate velit esse molestie consequat, vel illum
+                dolore eu feugiat nulla facilisis at vero eros et accumsan et
+                iusto odio dignissim qui blandit praesent luptatum zzril delenit
+                augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor
+                sit amet,
+            </P>
+            <P>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
+                repellat dolorum, nulla in harum culpa ab cumque autem magnam
+                inventore ipsa nesciunt enim tempora eveniet dolores laudantium
+                nihil, ipsam dicta doloribus, aspernatur eos velit quaerat hic.
+                Delectus similique temporibus, voluptas nisi velit iste? Quam
+                reiciendis voluptate necessitatibus est dolore tempora quae
+                nulla aut unde ipsam, ipsa odit. Assumenda maiores esse magnam
+                error suscipit quidem earum enim sit at blanditiis quas illo
+                quisquam neque nobis eum doloremque, maxime, consectetur
+                explicabo unde dicta quibusdam ea ad iure. Vitae hic ullam nulla
+                iste quam debitis vel distinctio accusamus. Illum est tempora
+                aspernatur enim!
+            </P>
+        </SectionInner>
+    </Section>
+    <Section class="bg-purple-1 text-white">
+        <SectionInner>
+            <FlexRow>
+                <PaddingBox>
+                    <Heading tag="h3">Test 1</Heading>
+                    <P>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing
+                        elit. Impedit iste debitis, ea quis eius consequuntur
+                        eum, facilis, magnam aliquam repudiandae ullam id?
+                        Eveniet itaque aperiam dignissimos maxime pariatur
+                        commodi voluptate hic architecto adipisci harum odit,
+                        incidunt culpa illo accusantium ullam nam! Modi
+                        asperiores facere eveniet neque distinctio suscipit unde
+                        doloremque?
+                    </P>
+                </PaddingBox>
+                <PaddingBox>
+                    <Heading tag="h3">Test 1</Heading>
+                    <P>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing
+                        elit. Impedit iste debitis, ea quis eius consequuntur
+                        eum, facilis, magnam aliquam repudiandae ullam id?
+                        Eveniet itaque aperiam dignissimos maxime pariatur
+                        commodi voluptate hic architecto adipisci harum odit,
+                        incidunt culpa illo accusantium ullam nam! Modi
+                        asperiores facere eveniet neque distinctio suscipit unde
+                        doloremque?
+                    </P>
+                </PaddingBox>
+                <PaddingBox>
+                    <Heading tag="h3">Test 1</Heading>
+                    <P>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing
+                        elit. Impedit iste debitis, ea quis eius consequuntur
+                        eum, facilis, magnam aliquam repudiandae ullam id?
+                        Eveniet itaque aperiam dignissimos maxime pariatur
+                        commodi voluptate hic architecto adipisci harum odit,
+                        incidunt culpa illo accusantium ullam nam! Modi
+                        asperiores facere eveniet neque distinctio suscipit unde
+                        doloremque?
+                    </P>
+                </PaddingBox>
+            </FlexRow>
+        </SectionInner>
+    </Section>
+</LayoutHomePage>

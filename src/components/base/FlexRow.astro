@@ -1,0 +1,7 @@
+---
+const { class: className } = Astro.props;
+---
+
+<div class={`FlexRow flex flex-col lg:flex-row ${className}`}>
+    <slot />
+</div>

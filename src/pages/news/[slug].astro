@@ -1,0 +1,33 @@
+---
+import BaseLayout from "../../layout/BaseLayout.astro";
+import Heading from "../../components/Heading.astro";
+import { getFormattedDate } from "../../_utils";
+import { getCollection, getEntry } from "astro:content";
+
+const { slug } = Astro.params;
+
+const newsEntry = await getEntry("news", slug);
+
+const { Content } = await newsEntry.render();
+
+console.log();
+
+export async function getStaticPaths() {
+    const news = await getCollection("news");
+    const newsPub = news.filter((item) => item.data.published === true);
+    return newsPub.map((item) => {
+        return { params: { slug: item.slug } };
+    });
+}
+---
+
+<BaseLayout title={newsEntry.data.title} description={newsEntry.data.excerpt}>
+    <Heading class="text-blue-500 font-bold">{newsEntry.data.title}</Heading>
+    <time datetime="">{getFormattedDate(newsEntry.data.date)} Uhr</time>
+    <hr />
+    <p>
+        <Content />
+    </p>
+    <hr />
+    <a href="/news">Zurück</a>
+</BaseLayout>

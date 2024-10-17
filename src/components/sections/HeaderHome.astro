@@ -1,0 +1,50 @@
+---
+import Section from "../base/Section.astro";
+import SectionInner from "../base/SectionInner.astro";
+import FlexRow from "../base/FlexRow.astro";
+import PaddingBox from "../base/PaddingBox.astro";
+import P from "../base/P.astro";
+import ButtonOutlineWhite from "../base/ButtonOutlineWhite.astro";
+import Navbar from "./Navbar.astro";
+
+import { HOME_HERO_CONTENT } from "../../_settings";
+---
+
+<Section class="bg-gradient-to-tr from-purple-1 to-purple-2 text-white">
+    <Navbar class="hidden md:block" />
+    <SectionInner>
+        <FlexRow>
+            <PaddingBox class="lg:w-4/12">
+                <a
+                    class="block transition all ease-linear duration-200 scale-100 hover:scale-90"
+                    href="/"
+                >
+                    <img
+                        class="block mx-auto w-64 lg:w-auto"
+                        src="/images/logo-meihuacup.svg"
+                        alt="Logo Meihuacup"
+                    />
+                </a>
+            </PaddingBox>
+            <PaddingBox class="lg:w-8/12 text-center lg:text-left">
+                <h1
+                    class="text-5xl font-light uppercase mb-8 md:text-7xl lg:text-8xl"
+                >
+                    {HOME_HERO_CONTENT.title}
+                </h1>
+                <P class="text-2xl leading-8 mb-8">
+                    <strong>{HOME_HERO_CONTENT.date}</strong>
+                    <br />
+                    {HOME_HERO_CONTENT.location}
+                    <br />
+                    {HOME_HERO_CONTENT.street}
+                    <br />
+                    {HOME_HERO_CONTENT.plz}&nbsp;{HOME_HERO_CONTENT.city}
+                </P>
+                <ButtonOutlineWhite href={HOME_HERO_CONTENT.map} target="_blank"
+                    >Karte</ButtonOutlineWhite
+                >
+            </PaddingBox>
+        </FlexRow>
+    </SectionInner>
+</Section>

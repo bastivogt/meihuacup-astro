@@ -1,0 +1,11 @@
+---
+import Section from "./Section.astro";
+import SectionInner from "./SectionInner.astro";
+const { class: className } = Astro.props;
+---
+
+<Section class="bg-gradient-to-tr from-purple-1 to-purple-2 text-white">
+    <SectionInner>
+        <slot />
+    </SectionInner>
+</Section>
