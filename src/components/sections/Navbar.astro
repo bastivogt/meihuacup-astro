@@ -1,13 +1,37 @@
 ---
 import NavigationMain from "./NavigationMain.astro";
+import MobileMenu from "../MobileMenu";
+import { NAVIGATION, NAV_MAIN, NAV_META } from "../../_settings";
+
 const { class: className } = Astro.props;
 ---
 
 <nav class={`Navbar ${className}`}>
     <div class="flex">
         <div class="left w-full flex justify-center">
-            <NavigationMain class="py-4" />
+            <NavigationMain class="py-4 hidden md:flex" />
         </div>
-        <div class="left bg-white w-12"></div>
+
+        <div class="left bg-white w-12 py-4">
+            <div class="text-purple-1">
+                <MobileMenu triggerContent="Menu" client:load>
+                    <div>
+                        <ul>
+                            {
+                                NAVIGATION.filter(
+                                    (nav) => nav.menu === NAV_MAIN
+                                ).map((item) => {
+                                    return (
+                                        <li>
+                                            <a href={item.href}>{item.title}</a>
+                                        </li>
+                                    );
+                                })
+                            }
+                        </ul>
+                    </div>
+                </MobileMenu>
+            </div>
+        </div>
     </div>
 </nav>
