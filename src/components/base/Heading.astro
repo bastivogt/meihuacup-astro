@@ -2,12 +2,12 @@
 const { tag = "h1", class: className } = Astro.props;
 
 const headings = [
-    { tag: "h1", classList: ["text-5xl", "mb-1"] },
-    { tag: "h2", classList: ["text-4xl", "mb-1"] },
-    { tag: "h3", classList: ["text-3xl", "mb-1"] },
-    { tag: "h4", classList: ["text-2xl", "mb-1"] },
-    { tag: "h5", classList: ["text-1xl", "mb-1"] },
-    { tag: "h6", classList: ["text-xl", "mb-1"] },
+    { tag: "h1", classList: ["text-5xl"] },
+    { tag: "h2", classList: ["text-4xl"] },
+    { tag: "h3", classList: ["text-3xl"] },
+    { tag: "h4", classList: ["text-2xl"] },
+    { tag: "h5", classList: ["text-1xl"] },
+    { tag: "h6", classList: ["text-xl"] },
 ];
 
 function getHeading() {
@@ -21,7 +21,7 @@ function getHeading() {
 const h = getHeading();
 
 const TagName = h.tag;
-const classList = ["Heading", ...h.classList, className];
+const classList = ["Heading font-normal mb-4", ...h.classList, className];
 ---
 
 <TagName class:list={classList}><slot /></TagName>

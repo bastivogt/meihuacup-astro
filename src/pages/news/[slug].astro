@@ -1,7 +1,11 @@
 ---
-import BaseLayout from "../../layout/BaseLayout.astro";
 import Heading from "../../components/base/Heading.astro";
 import LayoutPage from "../../layout/LayoutPage.astro";
+import Section from "../../components/base/Section.astro";
+import SectionInner from "../../components/base/SectionInner.astro";
+import ButtonOutlinePurple from "../../components/base/ButtonOutlinePurple.astro";
+import ButtonOutlineWhite from "../../components/base/ButtonOutlineWhite.astro";
+
 import { getFormattedDate } from "../../_utils";
 import { getCollection, getEntry } from "astro:content";
 
@@ -25,14 +29,24 @@ export async function getStaticPaths() {
 <LayoutPage
     title={newsEntry.data.title}
     description={newsEntry.data.excerpt}
-    headerTitle="News"
+    headerTitle={newsEntry.data.title}
 >
-    <Heading class="text-blue-500 font-bold">{newsEntry.data.title}</Heading>
-    <time datetime="">{getFormattedDate(newsEntry.data.date)} Uhr</time>
-    <hr />
-    <p>
-        <Content />
-    </p>
-    <hr />
-    <a href="/news">Zurück</a>
+    <Section class="bg-purple-100">
+        <SectionInner>
+            <time class="text-sm" datetime={newsEntry.data.date.toDateString()}>
+                {getFormattedDate(newsEntry.data.date)} Uhr
+            </time>
+            <hr class={`w-12 mb-8 mt-3 border-gray-800 bg-gray-800"`} />
+            <div
+                class="prose prose-xl max-w-none prose-headings:font-normal prose-lead:leading-8 prose-headings:mb-4"
+            >
+                <Content />
+            </div>
+        </SectionInner>
+    </Section>
+    <Section class="bg-purple-2">
+        <SectionInner>
+            <ButtonOutlineWhite href="/news">Zurück zu News</ButtonOutlineWhite>
+        </SectionInner>
+    </Section>
 </LayoutPage>

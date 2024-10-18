@@ -25,7 +25,7 @@ const newsSortedByDate = news.sort((a, b) => {
         newsSortedByDate.map((item, index) => {
             return (
                 <Section
-                    class={`${index % 2 === 0 ? "bg-purple-100 text-black" : "bg-purple-2 text-white"}`}
+                    class={`${index % 2 === 0 ? "bg-purple-100 text-gray-800" : "bg-purple-2 text-white"}`}
                 >
                     <SectionInner>
                         <time
@@ -35,7 +35,7 @@ const newsSortedByDate = news.sort((a, b) => {
                             {getFormattedDate(item.data.date)} Uhr
                         </time>
                         <hr
-                            class={`w-12 mb-4 mt-4 ${index % 2 === 0 ? "border-black" : "border-white"}`}
+                            class={`w-12 mb-8 mt-3 ${index % 2 === 0 ? "border-gray-800" : "border-white"}`}
                         />
                         <Heading tag="h2">{item.data.title}</Heading>
                         <P>
