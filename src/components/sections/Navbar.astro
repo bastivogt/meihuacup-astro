@@ -24,7 +24,8 @@ const { class: className } = Astro.props;
                         <ul>
                             {
                                 NAVIGATION.filter(
-                                    (nav) => nav.menu === NAV_MAIN
+                                    (nav) =>
+                                        nav.menu === NAV_MAIN && nav.published
                                 ).map((item) => {
                                     return (
                                         <li class="py-1">

@@ -1,25 +1,62 @@
 ---
-import BaseLayout from "../../layout/BaseLayout.astro";
 import LayoutPage from "../../layout/LayoutPage.astro";
 import Heading from "../../components/base/Heading.astro";
+import Section from "../../components/base/Section.astro";
+import SectionInner from "../../components/base/SectionInner.astro";
+import ButtonOutlineWhite from "../../components/base/ButtonOutlineWhite.astro";
+import ButtonOutlinePurple from "../../components/base/ButtonOutlinePurple.astro";
+
 import { getCollection } from "astro:content";
+import P from "../../components/base/P.astro";
+
+import { getFormattedDate } from "../../_utils";
 
 const news = await getCollection("news").then((res) =>
     res.filter((item) => item.data.published)
 );
+
+const newsSortedByDate = news.sort((a, b) => {
+    return b.data.date.valueOf() - a.data.date.valueOf();
+});
 ---
 
-<LayoutPage title="News" description="News">
-    <Heading tag="h1">News</Heading>
-    <ul>
-        {
-            news.map((item) => {
-                return (
-                    <li>
-                        <a href={`/news/${item.slug}`}>{item.data.title}</a>
-                    </li>
-                );
-            })
-        }
-    </ul>
+<LayoutPage title="News" description="News" headerTitle="News">
+    {
+        newsSortedByDate.map((item, index) => {
+            return (
+                <Section
+                    class={`${index % 2 === 0 ? "bg-purple-100 text-black" : "bg-purple-2 text-white"}`}
+                >
+                    <SectionInner>
+                        <time
+                            class="text-sm"
+                            datetime={item.data.date.toDateString()}
+                        >
+                            {getFormattedDate(item.data.date)} Uhr
+                        </time>
+                        <hr
+                            class={`w-12 mb-4 mt-4 ${index % 2 === 0 ? "border-black" : "border-white"}`}
+                        />
+                        <Heading tag="h2">{item.data.title}</Heading>
+                        <P>
+                            <div>{item.data.excerpt}</div>
+                        </P>
+                        <div class="mt-12">
+                            {index % 2 === 0 ? (
+                                <ButtonOutlinePurple
+                                    href={`/news/${item.slug}`}
+                                >
+                                    Mehr
+                                </ButtonOutlinePurple>
+                            ) : (
+                                <ButtonOutlineWhite href={`/news/${item.slug}`}>
+                                    Mehr
+                                </ButtonOutlineWhite>
+                            )}
+                        </div>
+                    </SectionInner>
+                </Section>
+            );
+        })
+    }
 </LayoutPage>

@@ -5,12 +5,22 @@ import FlexRow from "../base/FlexRow.astro";
 import PaddingBox from "../base/PaddingBox.astro";
 import P from "../base/P.astro";
 import ButtonOutlineWhite from "../base/ButtonOutlineWhite.astro";
+import Heading from "../base/Heading.astro";
 
 import NavbarPageDefault from "./NavbarPageDefault.astro";
 
 import { HOME_HERO_CONTENT } from "../../_settings";
+
+const { title = "TITLE" } = Astro.props;
 ---
 
 <Section class="bg-gradient-to-tr from-purple-1 to-purple-2 text-white">
     <NavbarPageDefault />
+    <Section class="mt-10">
+        <hr class="bg-grey-lighter w-9 mx-auto" />
+
+        <div class="px-5 pt-5 pb-10 container mx-auto">
+            <Heading class="text-center" tag="h1">{title}</Heading>
+        </div>
+    </Section>
 </Section>

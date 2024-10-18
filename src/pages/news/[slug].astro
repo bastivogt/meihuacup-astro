@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layout/BaseLayout.astro";
 import Heading from "../../components/base/Heading.astro";
+import LayoutPage from "../../layout/LayoutPage.astro";
 import { getFormattedDate } from "../../_utils";
 import { getCollection, getEntry } from "astro:content";
 
@@ -21,7 +22,11 @@ export async function getStaticPaths() {
 }
 ---
 
-<BaseLayout title={newsEntry.data.title} description={newsEntry.data.excerpt}>
+<LayoutPage
+    title={newsEntry.data.title}
+    description={newsEntry.data.excerpt}
+    headerTitle="News"
+>
     <Heading class="text-blue-500 font-bold">{newsEntry.data.title}</Heading>
     <time datetime="">{getFormattedDate(newsEntry.data.date)} Uhr</time>
     <hr />
@@ -30,4 +35,4 @@ export async function getStaticPaths() {
     </p>
     <hr />
     <a href="/news">Zurück</a>
-</BaseLayout>
+</LayoutPage>

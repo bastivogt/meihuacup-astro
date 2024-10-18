@@ -1,11 +1,13 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-import HeaderHome from "../components/sections/HeaderHome.astro";
 import Header from "../components/sections/Header.astro";
-const { title = "", description = "" } = Astro.props;
+import Footer from "../components/sections/Footer.astro";
+
+const { title = "", description = "", headerTitle = "" } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description}>
-    <Header />
+    <Header title={headerTitle} />
     <slot />
+    <Footer />
 </BaseLayout>
