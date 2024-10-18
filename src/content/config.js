@@ -21,6 +21,18 @@ const newsCollection = defineCollection({
     })
 });
 
+
+const partnerCollection = defineCollection({
+  type: "content",
+  schema: ({image}) => z.object({
+    title: z.string(),
+    image: image(),
+    href: z.string().optional(),
+    published: z.boolean().default(true)
+  })
+});
+
 export const collections = {
   'news': newsCollection,
+  "partner": partnerCollection
 };
