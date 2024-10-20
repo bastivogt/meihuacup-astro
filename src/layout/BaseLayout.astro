@@ -40,11 +40,33 @@ const { title = "", description = "" } = Astro.props;
         }
     }
 
+    @keyframes rotationAnimation {
+        0% {
+            transform: rotate(0);
+        }
+        25% {
+            transform: rotate(30deg);
+        }
+        50% {
+            transform: rotate(0);
+        }
+        75% {
+            transform: rotate(-30deg);
+        }
+        100% {
+            transform: rotate(0);
+        }
+    }
+
     .fade-in {
         animation: fadeInAnimation 200ms ease;
     }
 
     .fade-out {
         animation: fadeOutAnimation 200ms ease;
+    }
+
+    .rotation-loop {
+        animation: rotationAnimation 10s linear infinite;
     }
 </style>

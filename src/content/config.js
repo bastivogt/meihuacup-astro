@@ -23,7 +23,7 @@ const newsCollection = defineCollection({
 
 
 const partnerCollection = defineCollection({
-  type: "content",
+  type: "data",
   schema: ({image}) => z.object({
     title: z.string(),
     image: image(),
