@@ -32,11 +32,11 @@ const partnerCollection = defineCollection({
   })
 });
 
-const regelwerkCollection = defineCollection({
+const downloadCollection = defineCollection({
   type: "content",
-  schema: ({image}) => z.object({
+  schema: z.object({
     title: z.string(),
-    href: image(),
+    href: z.string(),
     published: z.boolean().default(true)
   })
 });
@@ -44,5 +44,5 @@ const regelwerkCollection = defineCollection({
 export const collections = {
   'news': newsCollection,
   "partner": partnerCollection,
-  "regewerke": regelwerkCollection
+  "downloads": downloadCollection
 };

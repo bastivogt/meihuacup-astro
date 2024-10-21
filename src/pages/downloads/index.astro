@@ -4,20 +4,17 @@ import Section from "../../components/base/Section.astro";
 import SectionInner from "../../components/base/SectionInner.astro";
 import Heading from "../../components/base/Heading.astro";
 import ButtonOutlinePurple from "../../components/base/ButtonOutlinePurple.astro";
-import ButtonOutlineWhite from "../../components/base/ButtonOutlineWhite.astro";
 
 import { getCollection, getEntries } from "astro:content";
 
-const rw = await getCollection("regelwerke");
+const downloads = await getCollection("downloads").then((result) =>
+    result.filter((item) => item.data.published)
+);
 ---
 
-<LayoutPage
-    title="Regelwerke"
-    description="Regelwerke"
-    headerTitle="Regelwerke"
->
+<LayoutPage title="Downloads" description="Downloads" headerTitle="Downloads">
     {
-        rw.map(async (item, index) => {
+        downloads.map(async (item, index) => {
             console.log(item.data.href);
             console.log(item);
             const { Content } = await item.render();

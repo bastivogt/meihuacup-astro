@@ -19,8 +19,8 @@ export const NAVIGATION = [
         order: 20
     },
     {
-        title: "Regelwerke",
-        href: "/regelwerke",
+        title: "Downloads",
+        href: "/downloads",
         published: true,
         menu: NAV_MAIN,
         order: 30
