@@ -1,0 +1,46 @@
+---
+import LayoutPage from "../../layout/LayoutPage.astro";
+import Section from "../../components/base/Section.astro";
+import SectionInner from "../../components/base/SectionInner.astro";
+import Heading from "../../components/base/Heading.astro";
+import ButtonOutlinePurple from "../../components/base/ButtonOutlinePurple.astro";
+import ButtonOutlineWhite from "../../components/base/ButtonOutlineWhite.astro";
+
+import { getCollection, getEntries } from "astro:content";
+
+const rw = await getCollection("regelwerke");
+---
+
+<LayoutPage
+    title="Regelwerke"
+    description="Regelwerke"
+    headerTitle="Regelwerke"
+>
+    {
+        rw.map(async (item, index) => {
+            console.log(item.data.href);
+            console.log(item);
+            const { Content } = await item.render();
+            return (
+                <Section
+                    class={`${index % 2 === 0 ? "bg-purple-100" : "bg-purple-200"}`}
+                >
+                    <SectionInner>
+                        {/* <h2 class="text-6xl mb-4">{item.data.title}</h2> */}
+                        <Heading tag="h2">{item.data.title}</Heading>
+                        <Content />
+
+                        <div class="mt-12">
+                            <ButtonOutlinePurple
+                                href={item.data.href}
+                                target="_blank"
+                            >
+                                Zur PDF
+                            </ButtonOutlinePurple>
+                        </div>
+                    </SectionInner>
+                </Section>
+            );
+        })
+    }
+</LayoutPage>
