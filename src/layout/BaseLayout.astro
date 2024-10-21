@@ -16,7 +16,7 @@ const { title = "", description = "" } = Astro.props;
         <ViewTransitions />
         <title>{SITE_TITLE} - {title}</title>
     </head>
-    <body class="text-gray-800 text-xl leading-8">
+    <body class="text-gray-800 text-xl leading-8 overflow-x-hidden text-wrap">
         <slot />
     </body>
 </html>
