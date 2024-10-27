@@ -1,7 +1,12 @@
 ---
-import BaseLayout from "../layout/BaseLayout.astro";
+import LayoutPage from "../layout/LayoutPage.astro";
+import Section from "../components/base/Section.astro";
+import SectionInner from "../components/base/SectionInner.astro";
+import Heading from "../components/base/Heading.astro";
 ---
 
-<BaseLayout title="Kontakt" description="Kontakt">
-    <h1>Kontakt</h1>
-</BaseLayout>
+<LayoutPage title="Kontakt" description="Kontakt" headerTitle="Kontakt">
+    <section>
+        <SectionInner>Kontakt</SectionInner>
+    </section>
+</LayoutPage>

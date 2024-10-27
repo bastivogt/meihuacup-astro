@@ -6,7 +6,7 @@ import { NAVIGATION, NAV_MAIN, NAV_META } from "../../_settings";
 
 const pathname = new URL(Astro.request.url).pathname;
 
-const { class: className } = Astro.props;
+const { class: className = "" } = Astro.props;
 ---
 
 <nav class={`Navbar px-5 ${className}`}>

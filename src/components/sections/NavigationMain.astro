@@ -4,7 +4,7 @@ import { isActiveLink } from "../../_utils";
 
 const pathname = new URL(Astro.request.url).pathname;
 
-const { class: className } = Astro.props;
+const { class: className = "" } = Astro.props;
 
 const baseClasses =
     "transition-all ease-linear duration-200 px-2 uppercase text-xl text-grey-lighter hover:text-white";

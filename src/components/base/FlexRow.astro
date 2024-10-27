@@ -1,5 +1,5 @@
 ---
-const { class: className } = Astro.props;
+const { class: className = "" } = Astro.props;
 ---
 
 <div class={`FlexRow flex w-full flex-col lg:flex-row ${className}`}>

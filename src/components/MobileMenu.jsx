@@ -61,7 +61,3 @@ export default function MobileMenu({children}) {
         </div>
     );
 }
-
-const style = {
-    backgroundColor: "red"
-}

@@ -1,7 +1,16 @@
 ---
-import BaseLayout from "../layout/BaseLayout.astro";
+import LayoutPage from "../layout/LayoutPage.astro";
+import Section from "../components/base/Section.astro";
+import SectionInner from "../components/base/SectionInner.astro";
+import Heading from "../components/base/Heading.astro";
 ---
 
-<BaseLayout title="Impressum" description="Impressum">
-    <h1>Datenschutz</h1>
-</BaseLayout>
+<LayoutPage
+    title="Datenschutz"
+    description="Datenschutz"
+    headerTitle="Datenschutz"
+>
+    <section>
+        <SectionInner>Datenschutz</SectionInner>
+    </section>
+</LayoutPage>

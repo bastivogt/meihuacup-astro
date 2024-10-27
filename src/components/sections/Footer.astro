@@ -11,7 +11,7 @@ import { NAVIGATION, NAV_MAIN, NAV_META } from "../../_settings";
 
 const pathname = new URL(Astro.request.url).pathname;
 
-const { class: className } = Astro.props;
+const { class: className = "" } = Astro.props;
 ---
 
 <footer class={className}>

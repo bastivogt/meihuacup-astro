@@ -1,7 +1,12 @@
 ---
-import BaseLayout from "../layout/BaseLayout.astro";
+import LayoutPage from "../layout/LayoutPage.astro";
+import Section from "../components/base/Section.astro";
+import SectionInner from "../components/base/SectionInner.astro";
+import Heading from "../components/base/Heading.astro";
 ---
 
-<BaseLayout title="Impressum" description="Impressum">
-    <h1>Impressum</h1>
-</BaseLayout>
+<LayoutPage title="Impressum" description="Impressum" headerTitle="Impressum">
+    <section>
+        <SectionInner>Impressum</SectionInner>
+    </section>
+</LayoutPage>

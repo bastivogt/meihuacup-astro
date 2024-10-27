@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-const { class: className, src, alt } = Astro.props;
+const { class: className = "", src, alt } = Astro.props;
 ---
 
 <div class={`Card ${className}`}>

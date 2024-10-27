@@ -1,5 +1,5 @@
 ---
-const { tag = "h1", class: className } = Astro.props;
+const { tag = "h1", class: className = "" } = Astro.props;
 
 const headings = [
     { tag: "h1", classList: ["text-5xl"] },
