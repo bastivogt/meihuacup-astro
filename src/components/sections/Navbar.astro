@@ -5,6 +5,8 @@ import { isActiveLink, getlangFromUrl } from "../../_utils";
 import { NAVIGATION, NAV_MAIN, NAV_META } from "../../_settings";
 import { getLocaleByPath } from "astro:i18n";
 
+import LangSwitcher from "./LangSwitcher.astro";
+
 const pathname = new URL(Astro.request.url).pathname;
 
 const lang = getlangFromUrl(new URL(Astro.request.url));
@@ -16,8 +18,9 @@ const { class: className = "" } = Astro.props;
     <div class="flex justify-between items-center">
         <div class="right basis-24 py-5 px-2"></div>
         <div class="flex justify-center center basis-auto py-5">
-            <div>
+            <div class="flex justify-center items-center gap-2">
                 <NavigationMain class="hidden lg:block" />
+                <LangSwitcher class="hidden lg:block" />
             </div>
         </div>
         <div class="right basis-24 py-5 flex justify-center">
@@ -46,6 +49,7 @@ const { class: className = "" } = Astro.props;
                                     })
                             }
                         </ul>
+                        <LangSwitcher class="mt-2" />
                     </div>
                 </MobileMenu>
             </div>

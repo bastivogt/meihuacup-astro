@@ -1,0 +1,31 @@
+---
+import { NAVIGATION } from "../../_settings";
+
+const languages = Object.keys(NAVIGATION);
+console.log(languages);
+
+const { class: className = "" } = Astro.props;
+---
+
+<nav>
+    <ul class="flex">
+        {
+            languages.map((lang) => {
+                return (
+                    <li>
+                        <a
+                            class={`block w-12 h-auto transition-all ease-linear duration-200 px-1 uppercase text-xl text-grey-lighter hover:text-white hover:opacity-60 ${className}`}
+                            href={`/${lang}`}
+                        >
+                            <img
+                                class=""
+                                src={`/images/flags/${lang}.png`}
+                                alt={lang}
+                            />
+                        </a>
+                    </li>
+                );
+            })
+        }
+    </ul>
+</nav>

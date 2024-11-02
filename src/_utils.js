@@ -19,7 +19,7 @@ export function isActiveLink(pathname, href) {
 
 
 
-export function getFormattedDate(date, locale="de-DE") {
+export function getFormattedDate(date, locale="de") {
     const options = {
         weekday: "long",
         day: "2-digit",
