@@ -1,10 +1,13 @@
 ---
 import NavigationMain from "./NavigationMain.astro";
 import MobileMenu from "../MobileMenu";
-import { isActiveLink } from "../../_utils";
+import { isActiveLink, getlangFromUrl } from "../../_utils";
 import { NAVIGATION, NAV_MAIN, NAV_META } from "../../_settings";
+import { getLocaleByPath } from "astro:i18n";
 
 const pathname = new URL(Astro.request.url).pathname;
+
+const lang = getlangFromUrl(new URL(Astro.request.url));
 
 const { class: className = "" } = Astro.props;
 ---
@@ -23,21 +26,24 @@ const { class: className = "" } = Astro.props;
                     <div>
                         <ul>
                             {
-                                NAVIGATION.filter(
-                                    (nav) =>
-                                        nav.menu === NAV_MAIN && nav.published
-                                ).map((item) => {
-                                    return (
-                                        <li class="py-1">
-                                            <a
-                                                class={`text-2xl uppercase transition-all ease-linear duration-200 ${isActiveLink(pathname, item.href) ? "text-purple-2" : "text-grey-lighter"} hover:text-purple-2`}
-                                                href={item.href}
-                                            >
-                                                {item.title}
-                                            </a>
-                                        </li>
-                                    );
-                                })
+                                NAVIGATION[lang]
+                                    .filter(
+                                        (nav) =>
+                                            nav.menu === NAV_MAIN &&
+                                            nav.published
+                                    )
+                                    .map((item) => {
+                                        return (
+                                            <li class="py-1">
+                                                <a
+                                                    class={`text-2xl uppercase transition-all ease-linear duration-200 ${isActiveLink(pathname, item.href) ? "text-purple-2" : "text-grey-lighter"} hover:text-purple-2`}
+                                                    href={item.href}
+                                                >
+                                                    {item.title}
+                                                </a>
+                                            </li>
+                                        );
+                                    })
                             }
                         </ul>
                     </div>

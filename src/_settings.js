@@ -2,39 +2,40 @@ export const SITE_TITLE = "Mei Hua Cup";
 
 export const NAV_MAIN = "navMain";
 export const NAV_META = "navMeta";
-export const NAVIGATION = [
-    // MAIN
+export const NAVIGATION = {
+    de: [
+            // MAIN
     {
-        title: "Home",
-        href: "/",
+        title: "Start",
+        href: "/de",
         published: true,
         menu: NAV_MAIN,
         order: 10
     },
     {
         title: "News",
-        href: "/news",
+        href: "/de/news",
         published: true,
         menu: NAV_MAIN,
         order: 20
     },
     {
         title: "Downloads",
-        href: "/downloads",
+        href: "/de/downloads",
         published: true,
         menu: NAV_MAIN,
         order: 30
     },
     {
         title: "Partner",
-        href: "/partner",
+        href: "/de/partner",
         published: true,
         menu: NAV_MAIN,
         order: 40
     },
     {
         title: "Kontakt",
-        href: "/kontakt",
+        href: "/de/kontakt",
         published: true,
         menu: NAV_MAIN,
         order: 50
@@ -42,19 +43,21 @@ export const NAVIGATION = [
     // META
     {
         title: "Impressum",
-        href: "/impressum",
+        href: "/de/impressum",
         published: true,
         menu: NAV_META,
         order: 100
     },
     {
         title: "Datenschutz",
-        href: "/datenschutz",
+        href: "/de/datenschutz",
         published: true,
         menu: NAV_META,
         order: 110
     }
-];
+    ],
+    en: [],
+}
 
 
 // Section Contents

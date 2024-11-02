@@ -1,17 +1,33 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n";
 import Section from "../base/Section.astro";
 import SectionInner from "../base/SectionInner.astro";
 import FlexRow from "../base/FlexRow.astro";
 import PaddingBox from "../base/PaddingBox.astro";
 import Heading from "../base/Heading.astro";
 
-import { isActiveLink } from "../../_utils";
+import { isActiveLink, getlangFromUrl } from "../../_utils";
 
 import { NAVIGATION, NAV_MAIN, NAV_META } from "../../_settings";
 
 const pathname = new URL(Astro.request.url).pathname;
+console.log("PATHNAME", pathname);
+const lang = getlangFromUrl(new URL(Astro.request.url));
 
 const { class: className = "" } = Astro.props;
+
+const trans = {
+    de: {
+        navigation: "Navigation",
+        legal: "Rechtliches",
+        contact: "Kontakt",
+    },
+    en: {
+        navigation: "Navigation",
+        legal: "Legal",
+        contact: "Contact",
+    },
+};
 ---
 
 <footer class={className}>
@@ -20,58 +36,66 @@ const { class: className = "" } = Astro.props;
             <FlexRow>
                 <PaddingBox class="w-1/3">
                     <Heading tag="h4" class="mb-2 text-white"
-                        >Navigation</Heading
+                        >{trans[lang].navigation}</Heading
                     >
                     <div>
                         <ul>
                             {
-                                NAVIGATION.filter(
-                                    (nav) =>
-                                        nav.menu === NAV_MAIN && nav.published
-                                ).map((item) => {
-                                    return (
-                                        <li>
-                                            <a
-                                                href={item.href}
-                                                class={`transition-all ease-linear duration-200 hover:text-purple-2 ${isActiveLink(pathname, item.href) ? "text-purple-2" : "text-grey-lighter"}`}
-                                            >
-                                                {item.title}
-                                            </a>
-                                        </li>
-                                    );
-                                })
+                                NAVIGATION[lang]
+                                    .filter(
+                                        (nav) =>
+                                            nav.menu === NAV_MAIN &&
+                                            nav.published
+                                    )
+                                    .map((item) => {
+                                        return (
+                                            <li>
+                                                <a
+                                                    href={item.href}
+                                                    class={`transition-all ease-linear duration-200 hover:text-purple-2 ${isActiveLink(pathname, item.href) ? "text-purple-2" : "text-grey-lighter"}`}
+                                                >
+                                                    {item.title}
+                                                </a>
+                                            </li>
+                                        );
+                                    })
                             }
                         </ul>
                     </div>
                 </PaddingBox>
                 <PaddingBox class="w-1/3">
                     <Heading tag="h4" class="mb-2 text-white"
-                        >Rechtliches</Heading
+                        >{trans[lang].legal}</Heading
                     >
                     <div>
                         <ul>
                             {
-                                NAVIGATION.filter(
-                                    (nav) =>
-                                        nav.menu === NAV_META && nav.published
-                                ).map((item) => {
-                                    return (
-                                        <li>
-                                            <a
-                                                href={item.href}
-                                                class={`transition-all ease-linear duration-200 hover:text-purple-2 ${isActiveLink(pathname, item.href) ? "text-purple-2" : "text-grey-lighter"}`}
-                                            >
-                                                {item.title}
-                                            </a>
-                                        </li>
-                                    );
-                                })
+                                NAVIGATION[lang]
+                                    .filter(
+                                        (nav) =>
+                                            nav.menu === NAV_META &&
+                                            nav.published
+                                    )
+                                    .map((item) => {
+                                        return (
+                                            <li>
+                                                <a
+                                                    href={item.href}
+                                                    class={`transition-all ease-linear duration-200 hover:text-purple-2 ${isActiveLink(pathname, item.href) ? "text-purple-2" : "text-grey-lighter"}`}
+                                                >
+                                                    {item.title}
+                                                </a>
+                                            </li>
+                                        );
+                                    })
                             }
                         </ul>
                     </div>
                 </PaddingBox>
                 <PaddingBox class="w-1/3">
-                    <Heading tag="h4" class="mb-2 text-white">Kontakt</Heading>
+                    <Heading tag="h4" class="mb-2 text-white"
+                        >{trans[lang].contact}</Heading
+                    >
                 </PaddingBox>
             </FlexRow>
         </SectionInner>

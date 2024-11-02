@@ -1,13 +1,21 @@
 export function isActiveLink(pathname, href) {
-    if(pathname !== "/" && href !== "/") {
-        if (pathname.indexOf(href.slice(1)) != -1) {
-            return true;
-        }
-    }else if(pathname === "/" && href === "/"){
-        return true;
-    }
-    return false;
+    return pathname === href;
 }
+    
+    
+    
+// export function isActiveLink(pathname, href) {
+//         if(pathname !== "/" && href !== "/") {
+//             if (pathname.indexOf(href.slice(1)) != -1) {
+//                 return true;
+//             }
+//         }else if(pathname === "/" && href === "/"){
+//             return true;
+//         }
+//         return false;
+//     }
+//     return false;
+// }
 
 
 
@@ -23,4 +31,10 @@ export function getFormattedDate(date, locale="de-DE") {
     }
     const d = date.toLocaleString(locale, options);
     return d;
+}
+
+
+export function getlangFromUrl(url) {
+    const path = url.pathname;
+    return path.split("/")[1];
 }

@@ -6,8 +6,20 @@ import PaddingBox from "../base/PaddingBox.astro";
 import P from "../base/P.astro";
 import ButtonOutlineWhite from "../base/ButtonOutlineWhite.astro";
 import Navbar from "./Navbar.astro";
+import { getlangFromUrl } from "../../_utils";
 
 import { HOME_HERO_CONTENT } from "../../_settings";
+
+const lang = getlangFromUrl(new URL(Astro.request.url));
+
+const trans = {
+    de: {
+        map: "Karte",
+    },
+    en: {
+        map: "Map",
+    },
+};
 ---
 
 <Section class="bg-gradient-to-tr from-purple-1 to-purple-2 text-white">
@@ -42,7 +54,7 @@ import { HOME_HERO_CONTENT } from "../../_settings";
                     {HOME_HERO_CONTENT.plz}&nbsp;{HOME_HERO_CONTENT.city}
                 </P>
                 <ButtonOutlineWhite href={HOME_HERO_CONTENT.map} target="_blank"
-                    >Karte</ButtonOutlineWhite
+                    >{trans[lang].map}</ButtonOutlineWhite
                 >
             </PaddingBox>
         </FlexRow>

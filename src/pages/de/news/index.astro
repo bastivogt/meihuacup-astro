@@ -1,19 +1,24 @@
 ---
-import LayoutPage from "../../layout/LayoutPage.astro";
-import Heading from "../../components/base/Heading.astro";
-import Section from "../../components/base/Section.astro";
-import SectionInner from "../../components/base/SectionInner.astro";
-import ButtonOutlineWhite from "../../components/base/ButtonOutlineWhite.astro";
-import ButtonOutlinePurple from "../../components/base/ButtonOutlinePurple.astro";
+import LayoutPage from "../../../layout/LayoutPage.astro";
+import Heading from "../../../components/base/Heading.astro";
+import Section from "../../../components/base/Section.astro";
+import SectionInner from "../../../components/base/SectionInner.astro";
+import ButtonOutlineWhite from "../../../components/base/ButtonOutlineWhite.astro";
+import ButtonOutlinePurple from "../../../components/base/ButtonOutlinePurple.astro";
+import { getlangFromUrl } from "../../../_utils";
 
 import { getCollection } from "astro:content";
-import P from "../../components/base/P.astro";
+import P from "../../../components/base/P.astro";
 
-import { getFormattedDate } from "../../_utils";
+import { getFormattedDate } from "../../../_utils";
+
+const lang = getlangFromUrl(new URL(Astro.request.url));
 
 const news = await getCollection("news").then((res) =>
-    res.filter((item) => item.data.published)
+    res.filter((item) => item.data.published && item.id.split("/")[0] === lang)
 );
+
+console.log(news);
 
 const newsSortedByDate = news.sort((a, b) => {
     return b.data.date.valueOf() - a.data.date.valueOf();
@@ -43,13 +48,11 @@ const newsSortedByDate = news.sort((a, b) => {
                         </P>
                         <div class="mt-12">
                             {index % 2 === 0 ? (
-                                <ButtonOutlinePurple
-                                    href={`/news/${item.slug}`}
-                                >
+                                <ButtonOutlinePurple href={`news/${item.slug}`}>
                                     Mehr
                                 </ButtonOutlinePurple>
                             ) : (
-                                <ButtonOutlineWhite href={`/news/${item.slug}`}>
+                                <ButtonOutlineWhite href={`news/${item.slug}`}>
                                     Mehr
                                 </ButtonOutlineWhite>
                             )}

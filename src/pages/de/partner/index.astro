@@ -1,11 +1,11 @@
 ---
 import { getCollection } from "astro:content";
-import Section from "../../components/base/Section.astro";
-import SectionInner from "../../components/base/SectionInner.astro";
-import LayoutPage from "../../layout/LayoutPage.astro";
-import PaddingBox from "../../components/base/PaddingBox.astro";
+import Section from "../../../components/base/Section.astro";
+import SectionInner from "../../../components/base/SectionInner.astro";
+import LayoutPage from "../../../layout/LayoutPage.astro";
+import PaddingBox from "../../../components/base/PaddingBox.astro";
 import { Image } from "astro:assets";
-import Heading from "../../components/base/Heading.astro";
+import Heading from "../../../components/base/Heading.astro";
 
 const partner = (await getCollection("partner")).filter(
     (item) => item.data.published

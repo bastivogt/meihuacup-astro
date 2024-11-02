@@ -1,15 +1,20 @@
 ---
-import Heading from "../../components/base/Heading.astro";
-import LayoutPage from "../../layout/LayoutPage.astro";
-import Section from "../../components/base/Section.astro";
-import SectionInner from "../../components/base/SectionInner.astro";
-import ButtonOutlinePurple from "../../components/base/ButtonOutlinePurple.astro";
-import ButtonOutlineWhite from "../../components/base/ButtonOutlineWhite.astro";
+import Heading from "../../../components/base/Heading.astro";
+import LayoutPage from "../../../layout/LayoutPage.astro";
+import Section from "../../../components/base/Section.astro";
+import SectionInner from "../../../components/base/SectionInner.astro";
+import ButtonOutlinePurple from "../../../components/base/ButtonOutlinePurple.astro";
+import ButtonOutlineWhite from "../../../components/base/ButtonOutlineWhite.astro";
 
-import { getFormattedDate } from "../../_utils";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { getlangFromUrl } from "../../../_utils";
+
+import { getFormattedDate } from "../../../_utils";
 import { getCollection, getEntry } from "astro:content";
 
 const { slug } = Astro.params;
+
+const lang = getlangFromUrl(new URL(Astro.request.url));
 
 const newsEntry = await getEntry("news", slug);
 
@@ -46,7 +51,9 @@ export async function getStaticPaths() {
     </Section>
     <Section class="bg-purple-2">
         <SectionInner>
-            <ButtonOutlineWhite href="/news">Zurück zu News</ButtonOutlineWhite>
+            <ButtonOutlineWhite href={getRelativeLocaleUrl(lang, "news")}
+                >Zurück zu News</ButtonOutlineWhite
+            >
         </SectionInner>
     </Section>
 </LayoutPage>
