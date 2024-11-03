@@ -8,9 +8,13 @@ import P from "../../components/base/P.astro";
 import FlexRow from "../../components/base/FlexRow.astro";
 import PaddingBox from "../../components/base/PaddingBox.astro";
 import SectionGradient from "../../components/base/SectionGradient.astro";
+
+import { getlangFromUrl } from "../../_utils";
+
+const lang = getlangFromUrl(new URL(Astro.request.url));
 ---
 
-<LayoutHomePage title="Home" description="Home">
+<LayoutHomePage title="Home" description="Home" lang={lang}>
     <Section class="bg-purple-100">
         <SectionInner class="">
             <Heading tag="h1">Home</Heading>

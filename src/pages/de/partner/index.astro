@@ -7,12 +7,21 @@ import PaddingBox from "../../../components/base/PaddingBox.astro";
 import { Image } from "astro:assets";
 import Heading from "../../../components/base/Heading.astro";
 
+import { getlangFromUrl } from "../../../_utils";
+
+const lang = getlangFromUrl(new URL(Astro.request.url));
+
 const partner = (await getCollection("partner")).filter(
     (item) => item.data.published
 );
 ---
 
-<LayoutPage title="Partner" description="Partner" headerTitle="Partner">
+<LayoutPage
+    title="Partner"
+    description="Partner"
+    headerTitle="Partner"
+    lang={lang}
+>
     <div class="grid grid-cols-1 lg:grid-cols-3">
         {
             partner.map((item, index) => {

@@ -4,9 +4,9 @@ import { SITE_TITLE } from "../_settings";
 import { getlangFromUrl } from "../_utils";
 import "@fontsource-variable/open-sans";
 
-const { title = "", description = "" } = Astro.props;
+const { title = "", description = "", lang = "de" } = Astro.props;
 
-const lang = getlangFromUrl(new URL(Astro.request.url));
+//const lang = getlangFromUrl(new URL(Astro.request.url));
 ---
 
 <!doctype html>
@@ -16,6 +16,23 @@ const lang = getlangFromUrl(new URL(Astro.request.url));
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content={description} />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+        <meta property="og:title" content={`${SITE_TITLE} - ${title}`} />
+        <meta property="og:description" content={description} />
+        <meta
+            property="og:image"
+            content="http://dev.meihuacup.info/images/og_image.jpg"
+        />
+        <meta
+            property="og:image:url"
+            content="http://dev.meihuacup.info/images/og_image.jpg"
+        />
+        <!-- <meta property="og:image:secure_url" content="https://www.example.org/images/vorschau.jpeg"> -->
+        <meta property="og:image:type" content="image/jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="627" />
+        <meta property="og:image:alt" content={SITE_TITLE} />
+
         <ViewTransitions />
         <title>{SITE_TITLE} - {title}</title>
     </head>

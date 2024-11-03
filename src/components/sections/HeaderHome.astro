@@ -7,6 +7,7 @@ import P from "../base/P.astro";
 import ButtonOutlineWhite from "../base/ButtonOutlineWhite.astro";
 import Navbar from "./Navbar.astro";
 import { getlangFromUrl } from "../../_utils";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 import { HOME_HERO_CONTENT } from "../../_settings";
 
@@ -29,7 +30,7 @@ const trans = {
             <PaddingBox class="lg:w-4/12">
                 <a
                     class="block mx-auto w-64 lg:w-full lg:max-w-80 transition all ease-linear duration-200 scale-100 hover:scale-90"
-                    href="/"
+                    href={`/${lang}`}
                 >
                     <img
                         class=""

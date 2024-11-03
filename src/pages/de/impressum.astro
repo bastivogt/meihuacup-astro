@@ -3,9 +3,18 @@ import LayoutPage from "../../layout/LayoutPage.astro";
 import Section from "../../components/base/Section.astro";
 import SectionInner from "../../components/base/SectionInner.astro";
 import Heading from "../../components/base/Heading.astro";
+
+import { getlangFromUrl } from "../../_utils";
+
+const lang = getlangFromUrl(new URL(Astro.request.url));
 ---
 
-<LayoutPage title="Impressum" description="Impressum" headerTitle="Impressum">
+<LayoutPage
+    title="Impressum"
+    description="Impressum"
+    headerTitle="Impressum"
+    lang={lang}
+>
     <section>
         <SectionInner>Impressum</SectionInner>
     </section>

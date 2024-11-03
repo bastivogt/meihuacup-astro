@@ -3,10 +3,15 @@ import BaseLayout from "./BaseLayout.astro";
 import Header from "../components/sections/Header.astro";
 import Footer from "../components/sections/Footer.astro";
 
-const { title = "", description = "", headerTitle = "" } = Astro.props;
+const {
+    title = "",
+    description = "",
+    headerTitle = "",
+    lang = "de",
+} = Astro.props;
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} lang={lang}>
     <Header title={headerTitle} />
     <slot />
     <Footer />

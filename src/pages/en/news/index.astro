@@ -6,6 +6,7 @@ import SectionInner from "../../../components/base/SectionInner.astro";
 import ButtonOutlineWhite from "../../../components/base/ButtonOutlineWhite.astro";
 import ButtonOutlinePurple from "../../../components/base/ButtonOutlinePurple.astro";
 import { getlangFromUrl } from "../../../_utils";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 import { getCollection } from "astro:content";
 import P from "../../../components/base/P.astro";
@@ -34,7 +35,7 @@ const trans = {
 };
 ---
 
-<LayoutPage title="News" description="News" headerTitle="News">
+<LayoutPage title="News" description="News" headerTitle="News" lang={lang}>
     {
         newsSortedByDate.map((item, index) => {
             return (
@@ -57,11 +58,15 @@ const trans = {
                         </P>
                         <div class="mt-12">
                             {index % 2 === 0 ? (
-                                <ButtonOutlinePurple href={`news/${item.slug}`}>
+                                <ButtonOutlinePurple
+                                    href={`${getRelativeLocaleUrl(lang, "news")}/${item.slug}`}
+                                >
                                     {trans[lang].more}
                                 </ButtonOutlinePurple>
                             ) : (
-                                <ButtonOutlineWhite href={`news/${item.slug}`}>
+                                <ButtonOutlineWhite
+                                    href={`${getRelativeLocaleUrl(lang, "news")}/${item.slug}`}
+                                >
                                     {trans[lang].more}
                                 </ButtonOutlineWhite>
                             )}

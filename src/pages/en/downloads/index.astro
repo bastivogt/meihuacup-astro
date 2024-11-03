@@ -16,7 +16,12 @@ const downloads = await getCollection("downloads").then((result) =>
 );
 ---
 
-<LayoutPage title="Downloads" description="Downloads" headerTitle="Downloads">
+<LayoutPage
+    title="Downloads"
+    description="Downloads"
+    headerTitle="Downloads"
+    lang={lang}
+>
     {
         downloads.map(async (item, index) => {
             console.log(item.data.href);
